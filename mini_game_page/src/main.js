@@ -28,7 +28,18 @@ function onButtonClick(event, items) {
         return;
     }
 
-    displayItems(items.filter(item => item[key] === value));
+    // displayItems(items.filter(item => item[key] === value));
+    updateItems(items, key, value);
+}
+
+function updateItems(items, key, value) {
+    items.forEach(item => {
+        if (item.dataset[key] === value) {
+            item.classList.remove('invisible');
+        } else {
+            item.classList.add('invisible');
+        }
+    });
 }
 
 function setEventListeners(items) {
