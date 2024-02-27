@@ -6,9 +6,32 @@
     <meta property="og:title" content="cogito의 개발 테스트 페이지">
     <meta property="og:description" content="테스트 페이지입니다.!">
     <meta property="og:image" content="">
-    <title>Test Page</title>
+    <title>Window Size</title>
+    <style>
+        .tag {
+            display: inline-block;
+            background-color: thistle;
+            padding: 16px;
+            margin-top: 16px;
+            font-size: 48px;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="tag">Window Size</div>
+    <script>
+        const tag = document.querySelector('.tag');
+        function updateTag() {
+            tag.innerHTML = `
+            window.screen: ${window.screen.width}, ${window.screen.height} <br/>
+            documentElement.clientwidth: ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight} <br/>
+            `;
+        }
+        
+        window.addEventListener('resize', () => {
+            updateTag();
+        });
+        updateTag();
+    </script>
 </body>
 </html>
