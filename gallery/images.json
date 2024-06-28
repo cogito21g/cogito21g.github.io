@@ -1,0 +1,20 @@
+{
+    "images": [
+      {
+        "fileName": "art1.webp",
+        "title": "Abstract Painting",
+        "description": "An energetic abstract painting with bold blue and gold strokes."
+      },
+      {
+        "fileName": "art2.webp",
+        "title": "Minimalist Art",
+        "description": "A clean and simple minimalist artwork featuring geometric shapes."
+      },
+      {
+        "fileName": "art3.webp",
+        "title": "Surrealist Painting",
+        "description": "A dreamy surrealist painting with whimsical elements and soft pastels."
+      }
+    ]
+  }
+  
