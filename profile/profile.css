@@ -1,0 +1,434 @@
+/* FontAwesome 사용을 위해 */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+/* Common styles for the entire website */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #333;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Header 스타일 */
+header {
+  background-color: #004080;
+  color: white;
+  padding: 20px 0;
+}
+
+header h1 {
+  margin: 0;
+  text-align: center;
+}
+
+
+/* Footer 스타일 */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+
+/* Sub Navigation 스타일 */
+.sub-nav {
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+}
+
+.sub-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.sub-nav ul li {
+  margin: 0 15px;
+}
+
+.sub-nav ul li a {
+  text-decoration: none;
+  color: #333;
+  padding: 15px 20px;
+  display: block;
+  font-weight: bold;
+}
+
+.sub-nav ul li a:hover {
+  color: #004080;
+}
+
+/* 공통 섹션 스타일 */
+.section {
+  padding: 50px 0;
+  background: #f9f9f9; /* 기본 배경 색상 */
+  text-align: center; /* 글자 가운데 정렬 */
+}
+
+.section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 섹션에 그림자 추가 */
+  background: #fff; /* 섹션 배경 색상 */
+  border-radius: 10px; /* 모서리를 둥글게 */
+  padding: 20px;
+}
+
+.section-title {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #333; /* 제목 색상 */
+  border-bottom: 2px solid #eee; /* 제목 아래에 구분선 */
+  padding-bottom: 10px;
+}
+
+/* Markdown 콘텐츠 스타일 */
+.markdown-content h4.markdown-header {
+  font-weight: bold;
+  margin-top: 20px;
+  color: #444; /* 헤더 색상 */
+}
+
+.markdown-content ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  text-align: left; /* 리스트 아이템은 왼쪽 정렬 */
+}
+
+.markdown-content li.markdown-list {
+  margin-bottom: 10px;
+}
+
+.markdown-content a.markdown-link {
+  color: #004080;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.markdown-content a.markdown-link:hover {
+  color: #007BFF;
+  transform: scale(1.1);
+  text-decoration: underline;
+}
+
+.markdown-content strong.markdown-bold {
+  font-weight: bold;
+}
+
+.markdown-content em.markdown-italic {
+  font-style: italic;
+}
+
+.markdown-content p.markdown-paragraph {
+  margin-bottom: 15px;
+}
+
+/* Profile Section 스타일 */
+.section#profile {
+  background: linear-gradient(to right, #f0f8ff, #e0f7fa);
+}
+
+.section#profile .profile-card {
+  padding: 20px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section#profile .profile-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.profile-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #004080;
+  font-size: 1.1em;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.profile-link i {
+  margin-right: 5px;
+}
+
+.profile-link:hover {
+  color: #007BFF;
+  transform: scale(1.1);
+  text-decoration: underline;
+}
+
+/* Experience Section 스타일 */
+.section#experience {
+  background: linear-gradient(to right, #e6e6fa, #f5f5f5);
+}
+
+.section#experience .experience-card {
+  padding: 20px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center; /* 카드 내부는 가운데 정렬 */
+}
+
+.section#experience .experience-card h4 {
+  margin-top: 0;
+}
+
+.section#experience .experience-card p {
+  margin-bottom: 10px;
+}
+
+.section#experience .markdown-content a.markdown-link {
+  color: #004080;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.section#experience .markdown-content a.markdown-link:hover {
+  color: #007BFF;
+  transform: scale(1.1);
+  text-decoration: underline;
+}
+
+/* Projects Section 스타일 */
+.section#projects {
+  background: linear-gradient(to right, #d4e0ff, #ffffff);
+  position: relative;
+}
+
+.section#projects .project-slider {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  height: 400px; /* 슬라이드 높이 고정 */
+}
+
+.section#projects .project-card {
+  flex: 0 0 100%;
+  max-width: 800px;
+  background: #f9f9f9;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center; /* 프로젝트 카드 내부 가운데 정렬 */
+  margin-left: auto; /* 가운데 정렬 */
+  margin-right: auto; /* 가운데 정렬 */
+  transition: transform 0.5s ease;
+}
+
+.section#projects .project-card h4 {
+  margin-top: 0;
+}
+
+.section#projects .project-card p {
+  margin-bottom: 10px;
+}
+
+.section#projects .project-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.project-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #004080;
+  font-size: 1.1em;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.project-link i {
+  margin-right: 5px;
+}
+
+.project-link:hover {
+  color: #007BFF;
+  transform: scale(1.1);
+  text-decoration: underline;
+}
+
+.prev-slide, .next-slide {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 1.5em;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+
+.prev-slide:hover, .next-slide:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.prev-slide {
+  left: 10px;
+}
+
+.next-slide {
+  right: 10px;
+}
+
+.slide-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.indicator.active {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Skills Section 스타일 */
+.section#skills {
+  background: linear-gradient(to right, #fffacd, #faf0e6);
+}
+
+.skills-list {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item i {
+  margin-right: 8px;
+  font-size: 1.5em;
+}
+
+.skill-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Education Section 스타일 */
+.section#education {
+  background: linear-gradient(to right, #f0fff0, #e6ffe6);
+}
+
+.section#education .education-card {
+  padding: 20px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center; /* 카드 내부는 가운데 정렬 */
+}
+
+.section#education .education-card h4 {
+  margin-top: 0;
+}
+
+.section#education .education-card p {
+  margin-bottom: 10px;
+}
+
+.section#education .markdown-content a.markdown-link {
+  color: #004080;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.section#education .markdown-content a.markdown-link:hover {
+  color: #007BFF;
+  transform: scale(1.1);
+  text-decoration: underline;
+}
+
+/* Extra Activities Section 스타일 */
+.section#extraactivities {
+  background: linear-gradient(to right, #fff5ee, #ffebcd);
+}
+
+.section#extraactivities .activity-card {
+  padding: 20px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center; /* 카드 내부는 가운데 정렬 */
+}
+
+.section#extraactivities .activity-card h4 {
+  margin-top: 0;
+}
+
+.section#extraactivities .activity-card p {
+  margin-bottom: 10px;
+}
+
+.section#extraactivities .markdown-content a.markdown-link {
+  color: #004080;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.section#extraactivities .markdown-content a.markdown-link:hover {
+  color: #007BFF;
+  transform: scale(1.1);
+  text-decoration: underline;
+}
