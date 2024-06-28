@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>책 상세 정보</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>책 상세 정보</h1>
+        </div>
+    </header>
+    <main class="container">
+        <a href="index.html" class="back-link">← 목록으로</a>
+        <div id="book-content"></div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        let booksData = [];
+        fetch('books.json')
+            .then(response => response.json())
+            .then(data => {
+                booksData = data.books;
+            })
+            .catch(error => console.error('Error loading books:', error));
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+    "books": [
+      {
+        "id": "book1",
+        "title": "위대한 개츠비",
+        "author": "F. 스콧 피츠제럴드",
+        "genre": "소설",
+        "image": "https://example.com/gatsby.jpg",
+        "link": "./books/book1.md"
+      },
+      {
+        "id": "book2",
+        "title": "1984",
+        "author": "조지 오웰",
+        "genre": "디스토피아",
+        "image": "https://example.com/1984.jpg",
+        "link": "books/book2.md"
+      },
+      {
+        "id": "book3",
+        "title": "햄릿",
+        "author": "윌리엄 셰익스피어",
+        "genre": "희곡",
+        "image": "https://example.com/hamlet.jpg",
+        "link": "books/book3.md"
+      }
+    ]
+  }
