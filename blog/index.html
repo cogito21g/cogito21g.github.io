@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>블로그 메인 페이지</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #f4f4f4;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .pagination {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .pagination button {
+      margin-right: 5px;
+      cursor: pointer;
+      background-color: #f4f4f4;
+      border: none;
+      padding: 5px 10px;
+    }
+
+    .pagination button.active {
+      background-color: #333;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>블로그 메인 페이지</h1>
+  </header>
+
+  <div class="container">
+    <nav>
+      <ul id="categoryNav">
+        <li><a href="#" data-category="all">전체</a></li>
+        <li><a href="#" data-category="기술">기술</a></li>
+        <li><a href="#" data-category="일상">일상</a></li>
+        <!-- 필요에 따라 다른 카테고리 옵션 추가 -->
+      </ul>
+    </nav>
+
+    <div id="postTables"></div>
+
+    <div id="pagination" class="pagination"></div>
+  </div>
+
+  <script>
+    fetch('blog.json')
+      .then(response => response.json())
+      .then(data => {
+        const categoryNav = document.getElementById('categoryNav');
+        const postTablesContainer = document.getElementById('postTables');
+        const paginationContainer = document.getElementById('pagination');
+
+        // 카테고리 네비게이션 구현
+        categoryNav.addEventListener('click', (event) => {
+          if (event.target.tagName === 'A') {
+            const selectedCategory = event.target.dataset.category;
+            renderPostTables(selectedCategory);
+          }
+        });
+
+        // 포스트 데이터를 카테고리별로 테이블로 나누어 출력하는 함수
+        function renderPostTables(category) {
+          // 선택된 카테고리에 해당하는 포스트 필터링
+          const filteredPosts = (category === 'all') ? data : data.filter(post => post.category === category);
+
+          // 테이블당 최대 포스트 개수
+          const postsPerPage = 5;
+          const numTables = Math.ceil(filteredPosts.length / postsPerPage);
+
+          // 이전에 출력된 테이블 및 페이지 버튼 제거
+          postTablesContainer.innerHTML = '';
+          paginationContainer.innerHTML = '';
+
+          // 페이징 처리
+          for (let i = 0; i < numTables; i++) {
+            const table = document.createElement('table');
+            table.className = 'post-table';
+            table.border = '1';
+
+            const tbody = document.createElement('tbody');
+            table.appendChild(tbody);
+
+            // 현재 페이지에서 표시할 포스트 계산
+            const startIdx = i * postsPerPage;
+            const endIdx = startIdx + postsPerPage;
+            const postsToShow = filteredPosts.slice(startIdx, endIdx);
+
+            // 테이블에 포스트 추가
+            postsToShow.forEach(post => {
+              const row = document.createElement('tr');
+              row.innerHTML = `
+                <td>${post.id}</td>
+                <td><a href="post.html?id=${post.id}">${post.title}</a></td>
+                <td>${post.author}</td>
+                <td>${post.date}</td>
+              `;
+              tbody.appendChild(row);
+            });
+
+            // 테이블을 postTablesContainer에 추가
+            postTablesContainer.appendChild(table);
+
+            // 페이지 버튼 생성
+            const button = document.createElement('button');
+            button.textContent = i + 1;
+            button.addEventListener('click', () => {
+              // 버튼을 클릭하면 해당 페이지의 테이블을 보여줌
+              renderPostTables(category, i + 1);
+              // 페이지 버튼 스타일 변경 (선택된 페이지 강조)
+              const activeButton = paginationContainer.querySelector('.active');
+              if (activeButton) {
+                activeButton.classList.remove('active');
+              }
+              button.classList.add('active');
+            });
+            paginationContainer.appendChild(button);
+          }
+
+          // 초기 페이지로 첫 번째 페이지 보여주기
+          renderPostTables(category, 1);
+        }
+        
+        // 초기 메인 페이지 로딩 시 전체 포스트 출력
+        renderPostTables('all');
+      });
+  </script>
+</body>
+</html>
