@@ -2,6 +2,7 @@
 
 
 ## Structure
+```
 cogito21g.github.io/
 |-- index.html
 |-- styles.css
@@ -11,6 +12,7 @@ cogito21g.github.io/
     |-- {page_name}_index.html
     |-- {page_name}_styles.css
     |-- {page_name}_main.js
+```
 
 - index.html: 메인 페이지 구조
 - styles.css: 메인 페이지 스타일링
